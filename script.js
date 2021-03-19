@@ -30,7 +30,10 @@ let articleList = document.getElementById('list')
 authorForm.addEventListener('submit', handleSubmit);        
 
 async function handleSubmit(e){
+    
     e.preventDefault()
+    articleList.innerHTML = ``;        //Clears the list from previous form submissions where the list will generate
+    
 
     let userAuthor = encodeURIComponent(authorField.value.trim()); //Replaces spaces with %20 for the url          
     let ourQuery = queryAuthor + userAuthor + apiKey;               //Create the query to fetch NYT data  
@@ -56,8 +59,8 @@ async function handleSubmit(e){
 function generateArticleList(t,l,r){
 
     ul = document.createElement('ul')
-
-    //for loop iterates through key arrays to creat a list of links
+    
+    //for loop iterates through key arrays to create a list of links
 
     for(var i = 0; i < t.length; i++){
         const li = document.createElement('li')
@@ -73,6 +76,8 @@ function generateArticleList(t,l,r){
 
 
 }
+
+
 
 
 
